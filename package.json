@@ -1,0 +1,28 @@
+{
+  "name": "backend_nodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mongodb": "^6.16.0",
+    "mongoose": "^6.13.8",
+    "nodemon": "^3.1.10"
+  },
+  "description": "BAckend in Node js for execute operations crud",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hoursesoft/Backend-de-proyecto-node-js_Users.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Hoursesoft/Backend-de-proyecto-node-js_Users/issues"
+  },
+  "homepage": "https://github.com/Hoursesoft/Backend-de-proyecto-node-js_Users#readme"
+}
