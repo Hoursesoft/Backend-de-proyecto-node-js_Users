@@ -1,6 +1,4 @@
-const person = require('../models/person');
-
-
+const person = require('../models/Person');
 
 
 class ServerController {
