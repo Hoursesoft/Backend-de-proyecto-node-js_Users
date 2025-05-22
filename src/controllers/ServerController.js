@@ -59,8 +59,10 @@ class ServerController {
         })
     }
 
+
 //Método para obtener todos los usuarios
     getAllUsers(req, res) {
+        //Obtener todos los usuarios
         person.find((error, data) => {
             if (error) {
                 res.status(500).send();

@@ -4,6 +4,7 @@ const schema = mongoose.Schema;
 
 //Entidad
 var personSchema = new schema({
+    //Definir los atributos del modelo
     nombre: {
         type: String
     },
@@ -17,7 +18,10 @@ var personSchema = new schema({
         type: String
     }
 },{
+    //Definir el nombre de la colección
     collection: 'PERSONAS'
 });
 
+//Exportar el modelo
 module.exports = mongoose.model('PERSON', personSchema);
+
