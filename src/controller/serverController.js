@@ -1,7 +1,7 @@
-const person = require('../models/Person');
+const person = require('../model/person');
 
 
-class ServerController {
+class serverController {
     //Constructor
     constructor() {
 
@@ -73,4 +73,4 @@ class ServerController {
 }
 
 //Exportar la clase
-exports.default = ServerController;
+exports.default = serverController;

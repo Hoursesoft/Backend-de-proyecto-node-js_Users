@@ -1,9 +1,9 @@
 const express = require('express');
-const serverController = require("../controllers/ServerController");
+const serverController = require("../controller/serverController");
 
 
 //Rutas o endpoints
-class ServerRouter{
+class serverRouter{
     //Constructor
     constructor(){
         this.router = express.Router();
@@ -23,4 +23,4 @@ class ServerRouter{
 }
 
 //Exportar la clase
-exports.default = ServerRouter;
+exports.default = serverRouter;
