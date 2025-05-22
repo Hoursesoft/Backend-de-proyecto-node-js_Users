@@ -1,19 +1,19 @@
 const express = require('express');
-const serverController = require("../controller/serverController");
+const serverController = require("../controllers/serverController");
 
 
 //Rutas o endpoints
-class serverRouter{
+class ServerRouter{
     //Constructor
     constructor(){
+        //Importar express
         this.router = express.Router();
         this.config();
     }
 
-    //Método para definir las rutas
     config(){
+        //Configurar las rutas
         const objServerC = new serverController.default();
-        //Definir las rutas
         this.router.get("/users", objServerC.getAllUsers);
         this.router.get("/users/:id", objServerC.getUsers);
         this.router.post("/users", objServerC.register);
@@ -22,5 +22,4 @@ class serverRouter{
     }
 }
 
-//Exportar la clase
-exports.default = serverRouter;
+exports.default = ServerRouter;

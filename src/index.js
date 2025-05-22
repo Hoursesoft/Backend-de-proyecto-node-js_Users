@@ -6,9 +6,6 @@ const mongoose = require('mongoose');
 //Importar url de conexión a la BD
 const database = require('./database/db');
 
-
-
-
 class Server{
     //constructor
     constructor(){
@@ -19,8 +16,6 @@ class Server{
         //Indicar que las solicitudes http se trabajará en JSON
         this.app.use(express.json());
    
-    
-
         const router = express.Router();
         router.get('/', (req, res)=>{
             console.log("Nueva conexión");
@@ -37,17 +32,13 @@ class Server{
         });
     }
 
-    //Método para conectar a la BD
     conectarBD(){
-        //Conectar a la BD
         mongoose.connect(database.db).then(()=>{
-            console.log("Conexión exitosa a la bd");
+            console.log("Conexión a BD con éxito");
         }).catch((err)=>{
-
             console.error("Error de conexión");
         });
     }
 }
 
-//Crear una instancia del servidor
 const objServer = new Server();

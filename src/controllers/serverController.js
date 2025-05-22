@@ -1,13 +1,14 @@
-const person = require('../model/person');
+const person = require('../models/person');
 
 
-class serverController {
+
+
+class ServerController {
     //Constructor
     constructor() {
 
     }
-
-//Método para registrar un usuario
+//Registrar un usuario
     register(req, res) {
         person.create(req.body, (error, data) => {
             if (error) {
@@ -18,8 +19,8 @@ class serverController {
         });
     }
 
-
-//Método para actualizar un usuario
+ 
+//Actualizar un usuario
     update(req, res) {
         let { id, nombre, apellido, edad, email } = req.body;
         let obj = { nombre, apellido, edad, email }
@@ -32,7 +33,9 @@ class serverController {
         })
     }
 
-//Método para eliminar un usuario
+
+   
+//Eliminar un usuario
     deleteUser(req, res) {
         let { id } = req.body;
         person.findByIdAndDelete(id, (error, data) => {
@@ -45,7 +48,8 @@ class serverController {
     }
 
 
-//Método para obtener un usuario por id
+   
+//Obtener un usuario por id
     getUsers(req, res) {
         let id = req.params.id;
         person.findById(id, (error, data) => {
@@ -57,10 +61,8 @@ class serverController {
         })
     }
 
-
-//Método para obtener todos los usuarios
+  //Trear todos los usuarios
     getAllUsers(req, res) {
-        //Obtener todos los usuarios
         person.find((error, data) => {
             if (error) {
                 res.status(500).send();
@@ -72,5 +74,4 @@ class serverController {
 
 }
 
-//Exportar la clase
-exports.default = serverController;
+exports.default = ServerController;
