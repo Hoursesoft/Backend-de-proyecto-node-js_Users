@@ -1,4 +1,4 @@
-const person = require('../model/person');
+const person = require('../models/person');
 
 
 // Controlador 

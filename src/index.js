@@ -1,30 +1,48 @@
-const mongoose = require('mongoose');
+//Importar express
 const express = require('express');
-const serverRouter = require('./routers/serverRouter');
+const serverRouter = require('./routers/ServerRouter');
+//Importar mongoose
+const mongoose = require('mongoose');
+//Importar url de conexión a la BD
+const database = require('./database/db');
 
-class Server {
-    constructor() {
-        this.app = express(); 
+
+class Server{
+    //constructor
+    constructor(){
+        this.conectarBD();
+        this.app = express();
+        //Indicar el puerto por el que se ejecutará el servidor
         this.app.set('port', process.env.PORT || 3000);
-        this.app.use(express.json()); 
+        //Indicar que las solicitudes http se trabajará en JSON
+        this.app.use(express.json());
+   
+    
 
-       
         const router = express.Router();
-
-        router.get('/', (req, res) => {
+        router.get('/', (req, res)=>{
             console.log("Nueva conexión");
-            res.status(200).json({ message: "Hola mundo!" });
+            res.status(200).json({message: "Hola mundo!"});
         });
-
-        this.app.use('/', router);
-
-       
         const serverR = new serverRouter.default();
-
+        
+        //añadir las rutas al servidor
         this.app.use(serverR.router);
+        this.app.use(router);
+        //Levantar el servidor/correr el servidor
+        this.app.listen(this.app.get('port'), ()=>{
+            console.log("Servidor corriendo por el puerto => ", this.app.get('port'));
+        });
+    }
 
-        this.app.listen(this.app.get('port'), () => {
-            console.log("Servidor corriendo en el puerto", this.app.get('port'));
+    //Método para conectar a la BD
+    conectarBD(){
+        //Conectar a la BD
+        mongoose.connect(database.db).then(()=>{
+            console.log("Conexión exitosa a la bd");
+        }).catch((err)=>{
+
+            console.error("Error de conexión");
         });
     }
 }

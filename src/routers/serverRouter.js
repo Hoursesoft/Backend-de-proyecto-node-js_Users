@@ -1,5 +1,5 @@
 const express = require('express');
-const serverController = require("../controller/serverController");
+const serverController = require("../controllers/ServerController");
 
 
 //Rutas o endpoints
