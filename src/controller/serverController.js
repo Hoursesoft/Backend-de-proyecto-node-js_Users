@@ -2,12 +2,7 @@ const person = require('../model/person');
 
 
 // Controlador 
-let users = [
-    { id: 1, nombre: "Geremias", apellido: "Beltran" },
-    { id: 2, nombre: "Isadora", apellido: "Montiel" },
-    { id: 3, nombre: "Laureano", apellido: "Gómez" },
-    { id: 4, nombre: "Carlos", apellido: "Castro" }
-]
+
 
 class ServerController {
     constructor() {
