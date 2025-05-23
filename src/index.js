@@ -6,6 +6,12 @@ const mongoose = require('mongoose');
 //Importar url de conexión a la BD
 const database = require('./database/db');
 
+
+//Importar cors
+//Fue necesario usar los cors para que el backend pueda recibir peticiones de otros dominios
+//En este caso, el frontend está en otro dominio
+const cors = require('cors');
+
 class Server{
     //constructor
     constructor(){
@@ -15,7 +21,11 @@ class Server{
         this.app.set('port', process.env.PORT || 3000);
         //Indicar que las solicitudes http se trabajará en JSON
         this.app.use(express.json());
-   
+        //Indicar que las solicitudes http se trabajará en urlencoded
+        this.app.use(cors());
+      
+
+
         const router = express.Router();
         router.get('/', (req, res)=>{
             console.log("Nueva conexión");
