@@ -8,9 +8,9 @@ const database = require('./database/db');
 
 //Prueba importacion  de repo
 
-//Importar cors
-//Fue necesario usar los cors para que el backend pueda recibir peticiones de otros dominios
-//En este caso, el frontend está en otro dominio
+//Importar cors 𝕭
+//Fue necesario usar los cors para que el backend pueda recibir peticiones de otros dominios 𝕭
+//En este caso, el frontend está en otro dominio 𝕭
 const cors = require('cors');
 
 class Server{
@@ -22,7 +22,7 @@ class Server{
         this.app.set('port', process.env.PORT || 3000);
         //Indicar que las solicitudes http se trabajará en JSON
         this.app.use(express.json());
-        //Indicar que las solicitudes http se trabajará en urlencoded
+        //Indicar que las solicitudes http se trabajará en urlencoded 𝕭
         this.app.use(cors());
       
 
